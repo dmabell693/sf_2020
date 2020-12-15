@@ -1,5 +1,5 @@
 /**
- * This class is for the first part of assignment one
+ * This class is for the first part (pattern) of assignment one
  */
 package com.ss.sf.training.assignment1;
 
