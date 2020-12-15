@@ -27,25 +27,43 @@ public class GuessingGame {
 				
 		System.out.print("Hello, brave guesser! Please guess a number from 1 to 100. To win, you must guess within 10 of the random number in five tries or less! ");
 				
+		// create for loop with max of 5 executions
 		for (int i = 0; i < 5; i++) {
 		
+			// read user's guess
 			int userGuess = scanner.nextInt();
 
+			// create unique message if user guesses outside parameters
 			if (userGuess < 1 || userGuess > 100) {
 				
-				System.out.print("Uh-oh! You did not follow the rules! Please guess a number between 1-100! ");
-				
-			} else if ((userGuess > (randNum - 10)) && (userGuess < (randNum + 10))) {
-				
-				System.out.println(String.format("Congratulations! Your guess is within 10 of the randomly generated number! The randomly generated number is: %d. If you would like to play again, please run the program again!", randNum));
-				break;
-				
-			} else {
-				
+				// case if user is on last guess
 				if (i == 4) {
 					
 					System.out.println(String.format("Oh, well. You did not guess within 10 of the randomly generated number in 5 tries or less. The randomly generated number is: %d. If you would like to play again, please restart the program!", randNum));
 					
+				// case if user is not on last guess
+				} else {
+				
+				System.out.print("Uh-oh! You did not follow the rules! Please guess a number between 1-100! ");
+				
+				}
+				
+			// case if user guesses within 10	
+			} else if ((userGuess > (randNum - 10)) && (userGuess < (randNum + 10))) {
+				
+				System.out.println(String.format("Congratulations! Your guess is within 10 of the randomly generated number! The randomly generated number is: %d. If you would like to play again, please run the program again!", randNum));
+				
+				// break out of loop if user guesses within 10
+				break;
+				
+			} else {
+				
+				// case if user is on last guess
+				if (i == 4) {
+					
+					System.out.println(String.format("Oh, well. You did not guess within 10 of the randomly generated number in 5 tries or less. The randomly generated number is: %d. If you would like to play again, please restart the program!", randNum));
+					
+				// case if user is not on last guess
 				} else {
 					
 					System.out.print("Whoops! Your guess is not within 10 of the randomly generated number! Please guess again! ");
@@ -54,6 +72,7 @@ public class GuessingGame {
 
 			}
 		}
+		
 		//close the scanner
 		scanner.close();
 	}
